@@ -12,7 +12,7 @@ spec:
     type: {{ cni_network_provider }}
 {% if cni_network_provider == "OVNKubernetes" %}
     ovnKubernetesConfig:
+      ipsecConfig: {}
 {% else %}
     openshiftSDNConfig:
 {% endif %}
-      mtu: {{ cni_network_mtu }}

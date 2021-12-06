@@ -58,7 +58,6 @@
     template:
       src: ../templates/cluster-network-03-config.yml.j2
       dest: "{{ workdir }}/manifests/cluster-network-03-config.yml"
-    when: cni_network_mtu is defined
  
   - name: Configure RHCOS kernel options via MachineConfig before installation
     when: rhcos_pre_kernel_options | length > 0
