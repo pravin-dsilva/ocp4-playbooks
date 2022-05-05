@@ -18,3 +18,10 @@ cluster_network_cidr: 10.128.0.0/14
 cluster_network_hostprefix: 23
 service_network: 172.30.0.0/16
 fips_compliant: false
+
+enable_ipv6: false
+ipv6_cluster_network_cidr: fd01::/48
+ipv6_cluster_network_hostprefix: 64
+ipv6_service_network: fd02::/112
+ipv6_machine_network_cidr: fd2e:6f44:5dd8:c956::/120
+ipv4_machine_network_cidr: 10.0.0.0/16

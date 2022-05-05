@@ -6,8 +6,18 @@ spec:
   clusterNetwork:
   - cidr: {{ cluster_network_cidr }}
     hostPrefix: {{ cluster_network_hostprefix }}
+{% if enable_ipv6 %}
+  - cidr: {{ ipv6_cluster_network_cidr }}
+    hostPrefix: {{ ipv6_cluster_network_hostprefix }}
+  machineNetwork:
+  - cidr: {{ ipv4_machine_network_cidr }}
+  - cidr: {{ ipv6_machine_network_cidr }}
+{% endif %}
   serviceNetwork:
   - {{ service_network }}
+{% if enable_ipv6 %}
+  - {{ ipv6_service_network }}
+{% endif %}
   defaultNetwork:
     type: {{ cni_network_provider }}
 {% if cni_network_provider == "OVNKubernetes" %}
