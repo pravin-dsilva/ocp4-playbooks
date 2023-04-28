@@ -115,14 +115,14 @@
     args:
       chdir: "{{ workdir }}"
 
-  - name: Host ignition files
-    become: true
-    copy:
-      src: "{{ item }}"
-      dest: /var/www/html/ignition/
-      mode: o+r
-    with_fileglob:
-      - "{{ workdir }}/*.ign"
+#  - name: Host ignition files
+#    become: true
+#    copy:
+#      src: "{{ item }}"
+#      dest: /var/www/html/ignition/
+#      mode: o+r
+#    with_fileglob:
+#      - "{{ workdir }}/*.ign"
 
   - name: Best effort SELinux repair - Apache
     shell: "restorecon -vR /var/www/html || true"
