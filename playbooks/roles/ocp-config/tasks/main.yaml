@@ -66,8 +66,14 @@
 
   - name: Setup network configuration
     template:
-      src: ../templates/cluster-network-03-config.yml.j2
-      dest: "{{ workdir }}/manifests/cluster-network-03-config.yml"
+      src: ../templates/cluster-network-02-config.yml.j2
+      dest: "{{ workdir }}/manifests/cluster-network-02-config.yml"
+    when: cni_network_mtu is defined
+
+  - name: Setup network configuration
+    template:
+      src: ../templates/cluster-network-02-config.yml.j2
+      dest: /root/cluster-network-02-config.yml
     when: cni_network_mtu is defined
  
   - name: Configure RHCOS kernel options via MachineConfig before installation

@@ -9,10 +9,6 @@ spec:
   serviceNetwork:
   - {{ service_network }}
   defaultNetwork:
-    type: {{ cni_network_provider }}
-{% if cni_network_provider == "OVNKubernetes" %}
-    ovnKubernetesConfig:
-{% else %}
+    type: OpenshiftSDN
     openshiftSDNConfig:
-{% endif %}
-      mtu: {{ cni_network_mtu }}
+      mtu: 1400
